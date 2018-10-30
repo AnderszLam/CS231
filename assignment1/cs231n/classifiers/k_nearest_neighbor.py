@@ -127,7 +127,24 @@ class KNearestNeighbor(object):
     # HINT: Try to formulate the l2 distance using matrix multiplication    #
     #       and two broadcast sums.                                         #
     #########################################################################
-    pass
+
+    # vectorize the data first so you are able to do one long matrix multiplication
+    # - X: A numpy array of shape (num_train, D) containing the training data
+    #   consisting of num_train samples each of dimension D.
+    # - y: A numpy array of shape (N,) containing the training labels, where
+    #      y[i] is the label for X[i].
+    # https://medium.com/dataholiks-distillery/l2-distance-matrix-vectorization-trick-26aa3247ac6c
+
+    X_squared = np.sum(X**2,axis=1)
+    Y_squared = np.sum(self.X_train**2,axis = 1)
+
+    # multiply them
+    XY = np.dot(X,self.X_train.T)
+
+    # use l2 formulate (L2 = sqrt ((X-Y)^2) = sqrt (X^2 + Y^2 - 2XY)
+    dists = np.sqrt(X_squared[:,np.newaxis] + Y_squared -2*XY)
+
+
     #########################################################################
     #                         END OF YOUR CODE                              #
     #########################################################################
