@@ -55,3 +55,18 @@ np.bincount
 > np.bincount(np.arange(5))
 > array [(1,1,1,1,1)]
 ```
+```
+axis = 1
+> Axis of axes along which a sum is performed
+> Default (axis=none) sums all the elements of the input array
+> If negative --> it counts from the last to the first axis
+> It specifies the axis along which the means are computed. By default axis=0. This is consistent with the numpy.mean usage when axis is specified explicitly (in numpy.mean,     axis==None by default, which computes the mean value over the flattened array) , in which axis=0 along the rows (namely, index in pandas), and axis=1 along the columns. For added clarity, one may choose to specify axis='index' (instead of axis=0) or axis='columns' (instead of axis=1).
++------------+---------+--------+
+|            |  A      |  B     |
++------------+---------+---------
+|      0     | 0.626386| 1.52325|----axis=1----->
++------------+---------+--------+
+             |         |
+             | axis=0  |
+             ↓         ↓
+```
