@@ -70,3 +70,9 @@ axis = 1
              | axis=0  |
              ↓         ↓
 ```
+```
+np.array_split
+> x = np.arange(8.0)
+> np.array_split(x,3)
+[array([0.,1.,2.]), array([3.,4.,5.]),array([6.,7.])]
+```
