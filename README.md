@@ -17,6 +17,16 @@ pip install -r requirements.txt                 # Install dependencies
 source deactivate                               # Exit the virtual environment
 ```
 
+## Masking
+* Masking allows for handling of variable length inputs within Neural Networks
+  * Create a mask per sample initialized with 0 with a length equal to the longest sequence in the dataset and fill mask with 1s to all the position where sample has values in
+```
+mask = [0, 0, 0, 0, 0, 0, 0, 0, 0,]
+sample a = [2, 0, 5, 6]
+// fill the mask with ones to all the positions a has values in
+mask_a = [1, 1, 1, 1, 0, 0, 0, 0, 0]
+```
+
 ## Download Data
 ```
 cd cs231n/datasets
